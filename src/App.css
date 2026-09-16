@@ -1,184 +1,161 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
 .hero {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: center;
+  justify-content: center;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  overflow: hidden;
+  background: var(--black);
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+/* Diskret grön/guld ljussken bakom innehållet */
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      55% 45% at 50% 18%,
+      rgba(255, 184, 0, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      70% 55% at 50% 100%,
+      rgba(0, 155, 58, 0.22),
+      transparent 70%
+    );
+  pointer-events: none;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
+.hero__content {
   position: relative;
   width: 100%;
+  max-width: 56rem;
+  text-align: center;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.hero__eyebrow {
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: clamp(1rem, 3vw, 1.75rem);
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+.hero__title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(3rem, 15vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    var(--gold-bright) 0%,
+    var(--gold) 55%,
+    #c98a00 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__title-line {
+  display: block;
+}
+
+/* Trefärgad linje i flaggans färger */
+.hero__rule {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: clamp(1.5rem, 4vw, 2.25rem) auto clamp(1rem, 2.5vw, 1.5rem);
+  width: min(18rem, 70%);
+}
+
+.hero__rule span {
+  height: 3px;
+  flex: 1;
+  border-radius: 999px;
+}
+
+.hero__rule span:nth-child(1) {
+  background: var(--green);
+}
+.hero__rule span:nth-child(2) {
+  background: var(--gold);
+}
+.hero__rule span:nth-child(3) {
+  background: var(--green);
+}
+
+.hero__city {
+  font-size: clamp(1.1rem, 4.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em; /* kompenserar för letter-spacing vid centrering */
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.hero__tagline {
+  margin: clamp(1.25rem, 3vw, 1.75rem) auto 0;
+  max-width: 34rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.hero__cta {
+  display: inline-block;
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding: 1.1rem 3rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--black);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(255, 210, 63, 0.4);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  background: linear-gradient(135deg, var(--green-bright), var(--green));
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 155, 58, 0.35);
+}
+
+.hero__cta:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 4px;
+}
+
+.hero__cta:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .hero__cta {
+    display: block;
+    padding: 1rem 1.5rem;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cta {
+    transition: none;
+  }
+  .hero__cta:hover,
+  .hero__cta:focus-visible {
+    transform: none;
   }
 }
