@@ -10,3 +10,9 @@ export const FACEBOOK_URL = 'https://www.facebook.com/pinchers/'
 export const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=' +
   encodeURIComponent(`Pincher's Barbershop, ${ADDRESS}`)
+
+// Bilder i public/ måste prefixas med Vites base-sökväg, annars pekar de fel
+// när sajten ligger i en underkatalog på GitHub Pages.
+// Dev: /images/... — Bygge: /pinchers-barbershop/images/...
+export const asset = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`

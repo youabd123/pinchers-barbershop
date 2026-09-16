@@ -1,3 +1,4 @@
+import { asset } from '../config'
 import { useLanguage } from '../i18n'
 import './Staff.css'
 
@@ -27,7 +28,7 @@ function Staff() {
             <li className="member" key={member.name}>
               <img
                 className="member__photo"
-                src={member.image}
+                src={asset(member.image)}
                 alt={member.name}
                 width="768"
                 height="1024"

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { asset } from '../config'
 import { useLanguage } from '../i18n'
 import './Gallery.css'
 
@@ -121,7 +122,7 @@ function Gallery() {
               >
                 <img
                   className="gallery__image"
-                  src={src}
+                  src={asset(src)}
                   alt={index >= IMAGES.length ? '' : t.gallery.imageAlt}
                   loading="lazy"
                 />
