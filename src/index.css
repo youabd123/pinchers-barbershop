@@ -29,11 +29,26 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
   min-height: 100svh;
   background: var(--black);
   overflow-x: hidden;
+}
+
+/* Stoppar den fasta headern från att täcka rubriken man hoppar till */
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 #root {
@@ -114,4 +129,13 @@ p {
   .btn:focus-visible {
     transform: none;
   }
+}
+
+/* Kompakt variant för headern. Ligger sist så att den vinner över
+   mobilregeln ovan. */
+.btn--sm {
+  display: inline-block;
+  padding: 0.55rem 1.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
 }

@@ -1,20 +1,23 @@
 import { useEffect, useRef } from 'react'
+import { useLanguage } from '../i18n'
 import './Gallery.css'
 
-// Byt ut `src` mot de riktiga bilderna (lägg dem i public/gallery/)
-// och skriv en beskrivande `alt`-text för varje bild.
+// Byt ut sökvägarna mot de riktiga bilderna (lägg dem i public/gallery/).
+// När de riktiga bilderna är på plats bör varje bild få en egen alt-text
+// i translations[språk].gallery i stället för den gemensamma platshållartexten.
 const IMAGES = [
-  { src: '/gallery/placeholder-1.svg', alt: 'Platshållarbild' },
-  { src: '/gallery/placeholder-2.svg', alt: 'Platshållarbild' },
-  { src: '/gallery/placeholder-3.svg', alt: 'Platshållarbild' },
-  { src: '/gallery/placeholder-1.svg', alt: 'Platshållarbild' },
-  { src: '/gallery/placeholder-2.svg', alt: 'Platshållarbild' },
-  { src: '/gallery/placeholder-3.svg', alt: 'Platshållarbild' },
+  '/gallery/placeholder-1.svg',
+  '/gallery/placeholder-2.svg',
+  '/gallery/placeholder-3.svg',
+  '/gallery/placeholder-1.svg',
+  '/gallery/placeholder-2.svg',
+  '/gallery/placeholder-3.svg',
 ]
 
 const SPEED = 26 // pixlar per sekund
 
 function Gallery() {
+  const { t } = useLanguage()
   const trackRef = useRef(null)
   const pausedRef = useRef(false)
   const timerRef = useRef(0)
@@ -86,8 +89,8 @@ function Gallery() {
     <section className="gallery" id="galleri">
       <div className="gallery__inner">
         <header className="gallery__header">
-          <p className="gallery__eyebrow">Vårt arbete</p>
-          <h2 className="gallery__title">Galleri</h2>
+          <p className="gallery__eyebrow">{t.gallery.eyebrow}</p>
+          <h2 className="gallery__title">{t.gallery.title}</h2>
         </header>
 
         <div
@@ -109,13 +112,13 @@ function Gallery() {
             type="button"
             className="gallery__arrow gallery__arrow--prev"
             onClick={() => scrollStep(-1)}
-            aria-label="Föregående bilder"
+            aria-label={t.gallery.previous}
           >
             <span aria-hidden="true">&#8249;</span>
           </button>
 
           <ul className="gallery__track" ref={trackRef}>
-            {[...IMAGES, ...IMAGES].map((image, index) => (
+            {[...IMAGES, ...IMAGES].map((src, index) => (
               <li
                 className="gallery__item"
                 key={index}
@@ -123,8 +126,8 @@ function Gallery() {
               >
                 <img
                   className="gallery__image"
-                  src={image.src}
-                  alt={index >= IMAGES.length ? '' : image.alt}
+                  src={src}
+                  alt={index >= IMAGES.length ? '' : t.gallery.placeholderAlt}
                   loading="lazy"
                 />
               </li>
@@ -135,7 +138,7 @@ function Gallery() {
             type="button"
             className="gallery__arrow gallery__arrow--next"
             onClick={() => scrollStep(1)}
-            aria-label="Nästa bilder"
+            aria-label={t.gallery.next}
           >
             <span aria-hidden="true">&#8250;</span>
           </button>

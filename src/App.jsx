@@ -1,3 +1,4 @@
+import Header from './components/Header'
 import Services from './components/Services'
 import About from './components/About'
 import Staff from './components/Staff'
@@ -5,17 +6,22 @@ import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { BOOKING_URL } from './config'
+import { useLanguage } from './i18n'
 import './App.css'
 
 function App() {
+  const { t } = useLanguage()
+
   return (
     <>
+      <Header />
+
       <main>
-        <section className="hero">
+        <section className="hero" id="hem">
           <div className="hero__glow" aria-hidden="true" />
 
           <div className="hero__content">
-            <p className="hero__eyebrow">Est. Jamaica &middot; Sverige</p>
+            <p className="hero__eyebrow">{t.hero.eyebrow}</p>
 
             <h1 className="hero__title">
               Pincher&rsquo;s
@@ -28,11 +34,9 @@ function App() {
               <span />
             </div>
 
-            <p className="hero__city">Göteborg</p>
+            <p className="hero__city">{t.hero.city}</p>
 
-            <p className="hero__tagline">
-              Skarpa fades, rena linjer och karibisk själ &mdash; mitt i stan.
-            </p>
+            <p className="hero__tagline">{t.hero.tagline}</p>
 
             <a
               className="btn hero__cta"
@@ -40,7 +44,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Boka tid
+              {t.common.booking}
             </a>
           </div>
         </section>
