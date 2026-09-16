@@ -1,4 +1,7 @@
 import Services from './components/Services'
+import About from './components/About'
+import Staff from './components/Staff'
+import Gallery from './components/Gallery'
 import { BOOKING_URL } from './config'
 import './App.css'
 
@@ -40,6 +43,9 @@ function App() {
       </section>
 
       <Services />
+      <About />
+      <Staff />
+      <Gallery />
     </main>
   )
 }

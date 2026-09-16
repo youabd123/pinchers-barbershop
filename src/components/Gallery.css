@@ -1,0 +1,156 @@
+.gallery {
+  position: relative;
+  padding: clamp(3.5rem, 9vw, 5.5rem) 1.5rem;
+  background: var(--black-soft);
+  --gap: clamp(0.5rem, 1.5vw, 0.9rem);
+}
+
+/* Tunn linje i flaggans färger som avgränsar sektionen */
+.gallery::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(60rem, 85%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--green) 25%,
+    var(--gold) 50%,
+    var(--green) 75%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.gallery__inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.gallery__header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.gallery__eyebrow {
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 0.75rem;
+}
+
+.gallery__title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    var(--gold-bright) 0%,
+    var(--gold) 55%,
+    #c98a00 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gallery__viewport {
+  position: relative;
+}
+
+.gallery__track {
+  display: flex;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+
+.gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* margin-right i stället för gap: då blir de två kopiorna exakt lika
+   breda och loopen hoppar inte till. */
+.gallery__item {
+  flex: 0 0 auto;
+  width: calc(72% - var(--gap));
+  margin-right: var(--gap);
+}
+
+@media (min-width: 560px) {
+  .gallery__item {
+    width: calc(48% - var(--gap));
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery__item {
+    width: calc(25% - var(--gap));
+  }
+}
+
+.gallery__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--black);
+}
+
+.gallery__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgba(255, 184, 0, 0.45);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.75);
+  color: var(--gold);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery__arrow:hover,
+.gallery__arrow:focus-visible {
+  background: rgba(10, 10, 10, 0.95);
+  border-color: var(--gold);
+}
+
+.gallery__arrow:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.gallery__arrow--prev {
+  left: -0.5rem;
+}
+
+.gallery__arrow--next {
+  right: -0.5rem;
+}
+
+/* Pilar bara på större skärmar — på mobil sveper man i stället */
+@media (min-width: 720px) {
+  .gallery__arrow {
+    display: block;
+  }
+}
