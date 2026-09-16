@@ -85,6 +85,20 @@ p {
   transform: translateY(0);
 }
 
+/* Sekundär variant: samma form, men bara kontur */
+.btn--ghost {
+  background: none;
+  color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(255, 184, 0, 0.55);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background: none;
+  color: var(--green-bright);
+  box-shadow: 0 0 0 1px var(--green-bright);
+}
+
 @media (max-width: 480px) {
   .btn {
     display: block;

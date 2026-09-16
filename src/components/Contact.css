@@ -1,0 +1,202 @@
+.contact {
+  position: relative;
+  padding: clamp(3.5rem, 9vw, 5.5rem) 1.5rem;
+  background: var(--black);
+}
+
+/* Tunn linje i flaggans färger som avgränsar sektionen */
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(60rem, 85%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--green) 25%,
+    var(--gold) 50%,
+    var(--green) 75%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.contact__inner {
+  max-width: 62rem;
+  margin: 0 auto;
+}
+
+.contact__header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.contact__eyebrow {
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 0.75rem;
+}
+
+.contact__title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    var(--gold-bright) 0%,
+    var(--gold) 55%,
+    #c98a00 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+@media (min-width: 820px) {
+  .contact__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact__panel {
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  background: var(--black-soft);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+
+.contact__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.contact__label + * {
+  margin-bottom: 1.75rem;
+}
+
+.contact__address {
+  font-style: normal;
+  font-size: clamp(0.95rem, 2.1vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.contact__phone {
+  font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 184, 0, 0.5);
+}
+
+.contact__phone:hover,
+.contact__phone:focus-visible {
+  color: var(--gold-bright);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
+/* Öppettider */
+.hours {
+  margin: 0;
+}
+
+.hours__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.hours__row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hours__day {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.hours__time {
+  margin: 0;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+.hours__time--closed {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--green-bright);
+}
+
+/* Sociala medier */
+.contact__social {
+  margin-top: clamp(2rem, 5vw, 2.75rem);
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.social__icon {
+  display: inline-flex;
+  color: var(--green-bright);
+}
+
+.contact__social-note {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
