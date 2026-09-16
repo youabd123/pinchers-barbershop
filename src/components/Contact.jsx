@@ -48,6 +48,13 @@ function Contact() {
               </a>
             </p>
 
+            <h3 className="contact__label">{t.contact.emailLabel}</h3>
+            <p>
+              <a className="contact__email" href="mailto:pinchers1@hotmail.com">
+                pinchers1@hotmail.com
+              </a>
+            </p>
+
             <div className="contact__actions">
               <a
                 className="btn"
