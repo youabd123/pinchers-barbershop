@@ -44,6 +44,60 @@ body {
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
+}
+
+/* Delad boka-knapp */
+.btn {
+  display: inline-block;
+  padding: 1.1rem 3rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--black);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(255, 210, 63, 0.4);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: linear-gradient(135deg, var(--green-bright), var(--green));
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 155, 58, 0.35);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 4px;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .btn {
+    display: block;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+  .btn:hover,
+  .btn:focus-visible {
+    transform: none;
+  }
 }
