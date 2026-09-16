@@ -101,11 +101,15 @@
   }
 }
 
+/* Stående format: bilderna är 3/4 eller kvadratiska, så den här ration
+   beskär bara i sidled och hela frisyren syns. */
 .gallery__image {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center top;
   border-radius: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: var(--black);

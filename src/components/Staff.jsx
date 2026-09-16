@@ -3,13 +3,12 @@ import './Staff.css'
 
 // Namnen är desamma på båda språken. `role` pekar på en nyckel i
 // translations[språk].staff.roles.
-// Byt ut `image` mot sökvägen till det riktiga fotot, t.ex. '/personal/pinchers.jpg'
-// (lägg bilden i public/-mappen).
 const STAFF = [
-  { name: 'Pinchers', role: 'master', image: '/staff-placeholder.svg' },
-  { name: 'Mikaela', role: 'hairdresser', image: '/staff-placeholder.svg' },
-  { name: 'Sammy Frisör', role: 'hairdresser', image: '/staff-placeholder.svg' },
-  { name: 'Kevin', role: 'trainee', image: '/staff-placeholder.svg' },
+  {
+    name: 'Pinchers',
+    role: 'master',
+    image: '/images/staff/pinchers-barbershop.jpg',
+  },
 ]
 
 function Staff() {
@@ -26,7 +25,13 @@ function Staff() {
         <ul className="staff__grid">
           {STAFF.map((member) => (
             <li className="member" key={member.name}>
-              <img className="member__photo" src={member.image} alt="" />
+              <img
+                className="member__photo"
+                src={member.image}
+                alt={member.name}
+                width="768"
+                height="1024"
+              />
               <h3 className="member__name">{member.name}</h3>
               <p className="member__role">{t.staff.roles[member.role]}</p>
             </li>

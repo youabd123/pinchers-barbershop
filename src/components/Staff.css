@@ -61,35 +61,27 @@
   color: transparent;
 }
 
+/* En profil: centrerad och breddbegränsad i stället för ett tomt rutnät */
 .staff__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-@media (min-width: 560px) {
-  .staff__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 900px) {
-  .staff__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 .member {
+  width: 100%;
+  max-width: 19rem;
   text-align: center;
 }
 
+/* 3/4 matchar bildens egna proportioner — inget beskärs */
 .member__photo {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.08);

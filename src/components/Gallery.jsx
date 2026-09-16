@@ -2,16 +2,11 @@ import { useEffect, useRef } from 'react'
 import { useLanguage } from '../i18n'
 import './Gallery.css'
 
-// Byt ut sökvägarna mot de riktiga bilderna (lägg dem i public/gallery/).
-// När de riktiga bilderna är på plats bör varje bild få en egen alt-text
-// i translations[språk].gallery i stället för den gemensamma platshållartexten.
 const IMAGES = [
-  '/gallery/placeholder-1.svg',
-  '/gallery/placeholder-2.svg',
-  '/gallery/placeholder-3.svg',
-  '/gallery/placeholder-1.svg',
-  '/gallery/placeholder-2.svg',
-  '/gallery/placeholder-3.svg',
+  '/images/gallery/inspo.1.webp',
+  '/images/gallery/inspo.2.webp',
+  '/images/gallery/inspo.3.jpg',
+  '/images/gallery/inspo.4.webp',
 ]
 
 const SPEED = 26 // pixlar per sekund
@@ -127,7 +122,7 @@ function Gallery() {
                 <img
                   className="gallery__image"
                   src={src}
-                  alt={index >= IMAGES.length ? '' : t.gallery.placeholderAlt}
+                  alt={index >= IMAGES.length ? '' : t.gallery.imageAlt}
                   loading="lazy"
                 />
               </li>

@@ -65,8 +65,6 @@ export const translations = {
       title: 'Möt teamet',
       roles: {
         master: 'Master Barber / Designer & Director / Personal Trainer',
-        hairdresser: 'Frisör',
-        trainee: 'Elev',
       },
     },
     gallery: {
@@ -74,7 +72,7 @@ export const translations = {
       title: 'Galleri',
       previous: 'Föregående bilder',
       next: 'Nästa bilder',
-      placeholderAlt: 'Platshållarbild',
+      imageAlt: 'Frisyr klippt på Pincher’s Barbershop',
     },
     contact: {
       eyebrow: 'Kontakt',
@@ -156,8 +154,6 @@ export const translations = {
       title: 'Meet the team',
       roles: {
         master: 'Master Barber / Designer & Director / Personal Trainer',
-        hairdresser: 'Hairdresser',
-        trainee: 'Trainee',
       },
     },
     gallery: {
@@ -165,7 +161,7 @@ export const translations = {
       title: 'Gallery',
       previous: 'Previous images',
       next: 'Next images',
-      placeholderAlt: 'Placeholder image',
+      imageAlt: 'Haircut styled at Pincher’s Barbershop',
     },
     contact: {
       eyebrow: 'Contact',
