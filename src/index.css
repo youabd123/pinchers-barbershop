@@ -51,6 +51,28 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
+/* Sektioner tonar in när de scrollas in i vyn (se useReveal.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 #root {
   min-height: 100svh;
   display: flex;
@@ -62,6 +84,15 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+/* Gemensam tangentbordsmarkering. Komponenter som behöver en egen
+   variant skriver över den med sin egen :focus-visible-regel. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 /* Delad boka-knapp */
@@ -78,17 +109,21 @@ p {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(255, 210, 63, 0.4);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    transform 0.25s ease-out,
+    box-shadow 0.25s ease-out,
+    background 0.25s ease-out;
 }
 
+/* Lyft + mjukt guldsken runt knappen, ovanpå den gröna skuggan */
 .btn:hover,
 .btn:focus-visible {
   background: linear-gradient(135deg, var(--green-bright), var(--green));
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 155, 58, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(255, 210, 63, 0.55),
+    0 10px 26px rgba(0, 155, 58, 0.3),
+    0 0 22px rgba(255, 184, 0, 0.22);
 }
 
 .btn:focus-visible {

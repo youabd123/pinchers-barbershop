@@ -1,12 +1,14 @@
 import { BOOKING_URL } from '../config'
 import { useLanguage } from '../i18n'
+import { useReveal } from '../useReveal'
 import './Services.css'
 
 function Services() {
   const { t } = useLanguage()
+  const [revealRef, revealClass] = useReveal('services')
 
   return (
-    <section className="services" id="tjanster">
+    <section className={revealClass} id="tjanster" ref={revealRef}>
       <div className="services__inner">
         <header className="services__header">
           <p className="services__eyebrow">{t.services.eyebrow}</p>

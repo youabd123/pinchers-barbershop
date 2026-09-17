@@ -1,11 +1,13 @@
 import { useLanguage } from '../i18n'
+import { useReveal } from '../useReveal'
 import './About.css'
 
 function About() {
   const { t } = useLanguage()
+  const [revealRef, revealClass] = useReveal('about')
 
   return (
-    <section className="about" id="om-oss">
+    <section className={revealClass} id="om-oss" ref={revealRef}>
       <div className="about__inner">
         <header className="about__header">
           <p className="about__eyebrow">{t.about.eyebrow}</p>

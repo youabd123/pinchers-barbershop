@@ -5,6 +5,7 @@ import Staff from './components/Staff'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScrollTop from './components/ScrollTop'
 import { BOOKING_URL } from './config'
 import { useLanguage } from './i18n'
 import './App.css'
@@ -57,6 +58,7 @@ function App() {
       </main>
 
       <Footer />
+      <ScrollTop />
     </>
   )
 }

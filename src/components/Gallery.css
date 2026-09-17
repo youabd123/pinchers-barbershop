@@ -87,6 +87,8 @@
   flex: 0 0 auto;
   width: calc(72% - var(--gap));
   margin-right: var(--gap);
+  border-radius: 0.75rem;
+  overflow: hidden;
 }
 
 @media (min-width: 560px) {
@@ -113,6 +115,25 @@
   border-radius: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: var(--black);
+  transition: transform 0.45s ease-out;
+}
+
+/* Diskret inzoomning — bara på enheter med riktig hovring, så att
+   svepning på mobil inte fastnar i ett hover-läge */
+@media (hover: hover) {
+  .gallery__item:hover .gallery__image {
+    transform: scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__image {
+    transition: none;
+  }
+
+  .gallery__item:hover .gallery__image {
+    transform: none;
+  }
 }
 
 .gallery__arrow {

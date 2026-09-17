@@ -16,12 +16,32 @@ function Header() {
   const { language, setLanguage, t } = useLanguage()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Markerar den sektion som just nu passerar mitten av vyn.
+  useEffect(() => {
+    const sections = LINKS.map((link) => document.getElementById(link.id)).filter(
+      Boolean,
+    )
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const inView = entries.find((entry) => entry.isIntersecting)
+        if (inView) setActive(inView.target.id)
+      },
+      { rootMargin: '-45% 0px -45% 0px' },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
   }, [])
 
   // Stäng mobilmenyn med Escape.
@@ -50,7 +70,15 @@ function Header() {
           <ul className="header__links">
             {LINKS.map((link) => (
               <li key={link.id}>
-                <a className="header__link" href={`#${link.id}`}>
+                <a
+                  className={
+                    active === link.id
+                      ? 'header__link header__link--active'
+                      : 'header__link'
+                  }
+                  href={`#${link.id}`}
+                  aria-current={active === link.id ? 'true' : undefined}
+                >
                   {t.nav[link.key]}
                 </a>
               </li>
@@ -117,8 +145,13 @@ function Header() {
             {LINKS.map((link) => (
               <li key={link.id}>
                 <a
-                  className="header__mobile-link"
+                  className={
+                    active === link.id
+                      ? 'header__mobile-link header__mobile-link--active'
+                      : 'header__mobile-link'
+                  }
                   href={`#${link.id}`}
+                  aria-current={active === link.id ? 'true' : undefined}
                   onClick={() => setOpen(false)}
                 >
                   {t.nav[link.key]}

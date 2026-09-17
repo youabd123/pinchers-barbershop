@@ -84,9 +84,14 @@
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Guldkant närmast bilden, svart mellanrum och en tunn grön ytterring */
+  border: 1px solid rgba(255, 184, 0, 0.4);
+  box-shadow:
+    0 0 0 4px var(--black),
+    0 0 0 5px rgba(0, 155, 58, 0.4),
+    0 18px 38px rgba(0, 0, 0, 0.5);
   background: var(--black-soft);
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
 }
 
 .member__name {

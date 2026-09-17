@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { asset } from '../config'
 import { useLanguage } from '../i18n'
+import { useReveal } from '../useReveal'
 import './Gallery.css'
 
 const IMAGES = [
@@ -14,6 +15,7 @@ const SPEED = 26 // pixlar per sekund
 
 function Gallery() {
   const { t } = useLanguage()
+  const [revealRef, revealClass] = useReveal('gallery')
   const trackRef = useRef(null)
   const pausedRef = useRef(false)
   const timerRef = useRef(0)
@@ -82,7 +84,7 @@ function Gallery() {
   }
 
   return (
-    <section className="gallery" id="galleri">
+    <section className={revealClass} id="galleri" ref={revealRef}>
       <div className="gallery__inner">
         <header className="gallery__header">
           <p className="gallery__eyebrow">{t.gallery.eyebrow}</p>

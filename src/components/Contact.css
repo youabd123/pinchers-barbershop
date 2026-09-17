@@ -124,6 +124,18 @@
   margin-bottom: 0;
 }
 
+/* På smala skärmar blir knapparna blockelement (se .btn i index.css) —
+   stapla dem i full bredd i stället för att låta dem brytas ojämnt. */
+@media (max-width: 480px) {
+  .contact__actions {
+    flex-direction: column;
+  }
+
+  .contact__actions .btn {
+    width: 100%;
+  }
+}
+
 /* Öppettider */
 .hours {
   margin: 0;

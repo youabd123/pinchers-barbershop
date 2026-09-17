@@ -6,12 +6,49 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
+  transition:
+    background 0.25s ease-out,
+    border-color 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+
+/* Tunn linje i flaggans färger under headern, tonas in vid scroll */
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--green) 30%,
+    var(--gold) 50%,
+    var(--green) 70%,
+    transparent
+  );
+  transition: opacity 0.25s ease-out;
+  pointer-events: none;
 }
 
 /* Tydligare bakgrund och kant så fort sidan scrollas */
 .header--scrolled {
   background: rgba(10, 10, 10, 0.94);
   border-bottom-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.header--scrolled::after {
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header::after {
+    transition: none;
+  }
 }
 
 .header__inner {
@@ -82,6 +119,12 @@
   border-bottom-color: var(--green-bright);
 }
 
+/* Sektionen som syns just nu */
+.header__link--active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
 .header__actions {
   display: flex;
   align-items: center;
@@ -95,8 +138,9 @@
   gap: 0.35rem;
 }
 
+/* Något större yta att träffa med fingret (var ca 20 px hög) */
 .lang__btn {
-  padding: 0.2rem 0.1rem;
+  padding: 0.4rem 0.4rem;
   background: none;
   border: 0;
   border-bottom: 2px solid transparent;
@@ -206,5 +250,9 @@
 
 .header__mobile-link:hover,
 .header__mobile-link:focus-visible {
+  color: var(--gold);
+}
+
+.header__mobile-link--active {
   color: var(--gold);
 }

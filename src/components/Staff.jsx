@@ -1,5 +1,6 @@
 import { asset } from '../config'
 import { useLanguage } from '../i18n'
+import { useReveal } from '../useReveal'
 import './Staff.css'
 
 // Namnen är desamma på båda språken. `role` pekar på en nyckel i
@@ -14,9 +15,10 @@ const STAFF = [
 
 function Staff() {
   const { t } = useLanguage()
+  const [revealRef, revealClass] = useReveal('staff')
 
   return (
-    <section className="staff" id="personal">
+    <section className={revealClass} id="personal" ref={revealRef}>
       <div className="staff__inner">
         <header className="staff__header">
           <p className="staff__eyebrow">{t.staff.eyebrow}</p>

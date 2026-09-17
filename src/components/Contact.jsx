@@ -5,6 +5,7 @@ import {
   MAPS_URL,
 } from '../config'
 import { useLanguage } from '../i18n'
+import { useReveal } from '../useReveal'
 import './Contact.css'
 
 // `day` pekar på en nyckel i translations[språk].contact.days.
@@ -20,9 +21,10 @@ const HOURS = [
 
 function Contact() {
   const { t } = useLanguage()
+  const [revealRef, revealClass] = useReveal('contact')
 
   return (
-    <section className="contact" id="kontakt">
+    <section className={revealClass} id="kontakt" ref={revealRef}>
       <div className="contact__inner">
         <header className="contact__header">
           <p className="contact__eyebrow">{t.contact.eyebrow}</p>
