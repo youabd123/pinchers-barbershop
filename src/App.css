@@ -6,7 +6,63 @@
   justify-content: center;
   padding: clamp(3rem, 8vw, 6rem) 1.5rem;
   overflow: hidden;
-  background: var(--black);
+
+  /* Bilden är stående (1536x2048) och beskärs hårt på breda skärmar.
+     28 % lodrätt håller kvar Pinchers ansikte, kundens huvud och den
+     jamaicanska flaggan på väggen i bild. Justera vid behov. */
+  --hero-focus: 50% 28%;
+
+  background-color: var(--black);
+  background-image: url('/images/hero/bildbakgrund.jpg');
+  background-size: cover;
+  background-position: var(--hero-focus);
+  background-repeat: no-repeat;
+}
+
+/* Mörkt svart/grönt lager över fotot så guldrubriken behåller kontrasten */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.88) 0%,
+      rgba(10, 10, 10, 0.7) 45%,
+      rgba(10, 10, 10, 0.93) 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(0, 60, 25, 0.35) 0%,
+      transparent 55%,
+      rgba(0, 60, 25, 0.3) 100%
+    );
+  pointer-events: none;
+}
+
+/* Smalare skärmar: där ryms hela bildhöjden, så beskärningen sker i sidled.
+   Båda personerna ligger strax vänster om mitten. Mörkare lager eftersom
+   texten täcker en större del av bilden. */
+@media (max-width: 720px) {
+  .hero {
+    --hero-focus: 48% 50%;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(10, 10, 10, 0.9) 0%,
+        rgba(10, 10, 10, 0.8) 45%,
+        rgba(10, 10, 10, 0.95) 100%
+      ),
+      linear-gradient(
+        120deg,
+        rgba(0, 60, 25, 0.35) 0%,
+        transparent 55%,
+        rgba(0, 60, 25, 0.3) 100%
+      );
+  }
 }
 
 /* Diskret grön/guld ljussken bakom innehållet */

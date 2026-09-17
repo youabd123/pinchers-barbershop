@@ -26,7 +26,7 @@ export const translations = {
     hero: {
       eyebrow: 'Est. Jamaica · Sverige',
       city: 'Göteborg',
-      tagline: 'Skarpa fades, rena linjer och karibisk själ — mitt i stan.',
+      tagline: 'Välkommen till Pincher’s – stil, kvalitet och personlig service.',
     },
     services: {
       eyebrow: 'Vad vi gör',
@@ -115,7 +115,7 @@ export const translations = {
     hero: {
       eyebrow: 'Est. Jamaica · Sweden',
       city: 'Göteborg',
-      tagline: 'Sharp fades, clean lines and Caribbean soul — right in the city.',
+      tagline: 'Welcome to Pincher’s – style, quality and personal service.',
     },
     services: {
       eyebrow: 'What we do',
