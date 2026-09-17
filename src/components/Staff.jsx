@@ -34,6 +34,7 @@ function Staff() {
                 alt={member.name}
                 width="768"
                 height="1024"
+                loading="lazy"
               />
               <h3 className="member__name">{member.name}</h3>
               <p className="member__role">{t.staff.roles[member.role]}</p>

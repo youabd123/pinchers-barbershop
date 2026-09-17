@@ -5,17 +5,54 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
+
+    <title>Pincher's Barbershop | Frisör &amp; Barberare i Göteborg</title>
     <meta
       name="description"
-      content="Pincher's Barbershop i Göteborg. Klassiska klippningar, skägg och fade med karibisk själ."
+      content="Pincher's Barbershop &amp; Ladies Corner på Andra Långgatan i Göteborg. Klippning, skägg, fades, färg och personlig service sedan 2001."
     />
+    <link
+      rel="canonical"
+      href="https://youabd123.github.io/pinchers-barbershop/"
+    />
+
+    <!-- Open Graph. og:image saknas tills vi har en liggande bild (1200x630). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pincher's Barbershop" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:title" content="Pincher's Barbershop | Göteborg" />
+    <meta
+      property="og:description"
+      content="Jamaicanska rötter, Göteborgsstil. Klippning, skägg och personlig service sedan 2001."
+    />
+    <meta
+      property="og:url"
+      content="https://youabd123.github.io/pinchers-barbershop/"
+    />
+
+    <!-- Byt till summary_large_image när en delningsbild finns på plats. -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Pincher's Barbershop | Göteborg" />
+    <meta
+      name="twitter:description"
+      content="Jamaicanska rötter, Göteborgsstil. Klippning, skägg och personlig service sedan 2001."
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Pincher's Barbershop | Göteborg</title>
+
+    <!-- Hero-bilden ligger i CSS och hittas annars sent — förladda den
+         så att första vyn renderar snabbare. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero/bildbakgrund.jpg"
+      fetchpriority="high"
+    />
   </head>
   <body>
     <div id="root"></div>
